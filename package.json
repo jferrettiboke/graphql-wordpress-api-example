@@ -1,0 +1,21 @@
+{
+  "name": "graphql-wordpress-api-example",
+  "version": "0.1.0",
+  "author": "Jesús Ferretti",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "graphql": "^0.8.2",
+    "graphql-server-express": "^0.4.3",
+    "graphql-tools": "^0.8.4",
+    "wpapi": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
