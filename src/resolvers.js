@@ -15,6 +15,13 @@ const resolvers = {
         .catch((err) => {
           throw new Error(err);
         });
+    },
+    WP_users(root, args) {
+      return connectors.users(args)
+        .then(users => users)
+        .catch((err) => {
+          throw new Error(err);
+        });
     }
   },
   WP_Page: {
@@ -22,6 +29,15 @@ const resolvers = {
     slug(page) { return page.slug; },
     title(page) { return page.title.rendered; },
     content(page) { return page.content.rendered; }
+  },
+  WP_User: {
+    id(user) { return user.id; },
+    name(user) { return user.name; },
+    avatar(user, args) {
+      const sizes = { 'SMALL': 24, 'MEDIUM': 48, 'LARGE': 96 };
+      const avatarSize = sizes[args.size];
+      return user.avatar_urls[avatarSize];
+    },
   }
 };
 

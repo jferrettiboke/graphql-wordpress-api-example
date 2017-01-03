@@ -14,6 +14,9 @@ const connectors = {
     if (args.slug && args.slug !== '') { resource.slug(args.slug); }
     if (args.search && args.search !== '') { resource.search(args.search); }
     return resource;
+  },
+  users(args) {
+    return wp.users();
   }
 };
 
