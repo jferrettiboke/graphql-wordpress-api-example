@@ -12,6 +12,7 @@ const typeDefs = [/* GraphQL */`
     slug: String
     title: String
     content: String
+    author: WP_User
   }
 
   # WP User Type.

@@ -15,6 +15,11 @@ const connectors = {
     if (args.search && args.search !== '') { resource.search(args.search); }
     return resource;
   },
+  user(args) {
+    const resource = wp.users();
+    if (args.id && args.id !== '') { resource.id(args.id); }
+    return resource;
+  },
   users(args) {
     return wp.users();
   }

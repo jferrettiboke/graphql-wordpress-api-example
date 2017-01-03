@@ -28,7 +28,14 @@ const resolvers = {
     id(page) { return page.id; },
     slug(page) { return page.slug; },
     title(page) { return page.title.rendered; },
-    content(page) { return page.content.rendered; }
+    content(page) { return page.content.rendered; },
+    author(page) {
+      return connectors.user({ id: page.author })
+        .then(user => user)
+        .catch((err) => {
+          throw new Error(err);
+        });
+    }
   },
   WP_User: {
     id(user) { return user.id; },
@@ -37,7 +44,7 @@ const resolvers = {
       const sizes = { 'SMALL': 24, 'MEDIUM': 48, 'LARGE': 96 };
       const avatarSize = sizes[args.size];
       return user.avatar_urls[avatarSize];
-    },
+    }
   }
 };
 
